@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play NewWorld.</tw-noscript></noscript></tw-story>
-<tw-storydata name="NewWorld" startnode="3" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="859706C0-92C2-4773-B4BD-EF1ED16EDC1E" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Chakra+Petch:wght@500;600;700&family=Monoton&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap");
+<tw-storydata name="NewWorld" startnode="3" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="859706C0-92C2-4773-B4BD-EF1ED16EDC1E" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Chakra+Petch:wght@500;600;700&family=Monoton&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap");
 
 .stat-bar {
   position: fixed;
@@ -230,17 +230,17 @@ tw-passage[tags~="party-scene"] {
   position: relative;
   isolation: isolate;
   box-sizing: border-box;
-  width: min(860px, 96vw);
+  width: min(900px, 96vw);
   margin: 0 auto !important;
-  padding: 0 220px 12px 14px !important;
+  padding: 0 12px 12px 14px !important;
   text-align: left;
-  color: #f8f5ff;
+  color: #fff7fd;
   font-family: "Chakra Petch", "Trebuchet MS", "PingFang SC", "Noto Sans SC", sans-serif;
   font-size: clamp(1rem, 1.01vw, 1.08rem);
-  line-height: 1.66;
+  line-height: 1.68;
   text-shadow:
-    0 0 10px rgba(255,255,255,.05),
-    0 0 14px rgba(122,214,255,.07);
+    0 0 8px rgba(255,255,255,.08),
+    0 0 18px rgba(122,214,255,.10);
 }
 
 tw-passage[tags~="party-scene"] > :first-child {
@@ -259,22 +259,35 @@ tw-passage[tags~="party-scene"]::after {
 tw-passage[tags~="party-scene"]::before {
   z-index: -2;
   background:
-    radial-gradient(circle at 50% -4%, rgba(255,255,255,.24), transparent 11%),
-    repeating-radial-gradient(circle at 50% -4%, rgba(255,255,255,.08) 0 2px, transparent 2px 18px),
-    radial-gradient(circle at 14% 16%, rgba(255,170,214,.18), transparent 20%),
-    radial-gradient(circle at 84% 18%, rgba(129,220,255,.18), transparent 20%),
-    radial-gradient(circle at 78% 74%, rgba(255,170,214,.10), transparent 16%),
-    radial-gradient(circle at 22% 82%, rgba(129,220,255,.10), transparent 16%),
-    linear-gradient(180deg, #030308 0%, #0a0f1c 42%, #16081a 100%);
+    radial-gradient(circle at 50% 7%, rgba(255,255,255,.95) 0 8px, rgba(230,240,255,.28) 9px 36px, transparent 40px),
+    radial-gradient(circle at 50% 7%, rgba(255,255,255,.16), transparent 120px),
+    repeating-conic-gradient(
+      from 0deg at 50% 7%,
+      rgba(255,255,255,.18) 0 6deg,
+      rgba(255,255,255,0) 6deg 12deg
+    ),
+    radial-gradient(circle at 18% 20%, rgba(255, 70, 170, 0.26), transparent 18%),
+    radial-gradient(circle at 84% 18%, rgba(73, 222, 255, 0.24), transparent 20%),
+    radial-gradient(circle at 74% 72%, rgba(255, 206, 120, 0.12), transparent 20%),
+    radial-gradient(circle at 24% 80%, rgba(198, 142, 255, 0.12), transparent 20%),
+    linear-gradient(180deg, rgba(18, 20, 40, 0.20), rgba(8, 10, 20, 0.72)),
+    linear-gradient(180deg, #04050c 0%, #0a0f21 38%, #18081c 100%);
+  filter: saturate(1.18);
 }
 
 tw-passage[tags~="party-scene"]::after {
   z-index: -1;
   background:
-    linear-gradient(135deg, rgba(255,255,255,.08), transparent 26%),
-    repeating-linear-gradient(to right, rgba(255,255,255,.025) 0 1px, transparent 1px 98px),
-    repeating-linear-gradient(to bottom, rgba(255,255,255,.018) 0 1px, transparent 1px 28px);
+    linear-gradient(112deg, transparent 10%, rgba(255,255,255,.09) 19%, transparent 29%),
+    linear-gradient(67deg, transparent 8%, rgba(255,255,255,.06) 16%, transparent 24%),
+    radial-gradient(circle at 14% 24%, rgba(255,255,255,.13), transparent 2.7%),
+    radial-gradient(circle at 86% 19%, rgba(255,255,255,.12), transparent 2.6%),
+    radial-gradient(circle at 72% 62%, rgba(255,255,255,.08), transparent 2.1%),
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.024) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, rgba(255,255,255,.05), transparent 16%);
   mix-blend-mode: screen;
+  opacity: 0.92;
+  animation: partyPulse 7s ease-in-out infinite, paparazziFlash 9s steps(1, end) infinite;
 }
 
 tw-passage[tags~="party-scene"] tw-link {
@@ -283,41 +296,72 @@ tw-passage[tags~="party-scene"] tw-link {
   padding: 0;
   border: 0;
   background: none;
-  color: #9fe3ff;
+  color: #a9e8ff;
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px solid rgba(159,227,255,.42);
-  text-shadow: 0 0 10px rgba(159,227,255,.15);
+  border-bottom: 1px solid rgba(169,232,255,.46);
+  text-shadow:
+    0 0 10px rgba(169,232,255,.18),
+    0 0 18px rgba(255,156,204,.08);
 }
 
 tw-passage[tags~="party-scene"] tw-link:hover {
-  color: #ff9ccc;
-  border-bottom-color: rgba(255,156,204,.52);
-  text-shadow: 0 0 14px rgba(255,156,204,.30);
+  color: #ff9fd4;
+  border-bottom-color: rgba(255,159,212,.56);
+  text-shadow:
+    0 0 12px rgba(255,159,212,.28),
+    0 0 24px rgba(255,255,255,.10);
 }
 
 .scene-options {
-  margin: .55rem 0 0 .9rem;
+  margin: .7rem 0 0 .9rem;
 }
 
 .scene-options tw-link {
   display: block;
   width: fit-content;
-  margin: .12rem 0 0;
-  padding: .14rem .48rem;
-  border: 1px solid rgba(255,255,255,.24);
+  margin: .18rem 0 0;
+  padding: .18rem .58rem;
+  border: 1px solid rgba(255,255,255,.28);
   background:
-    linear-gradient(180deg, rgba(255,255,255,.34), rgba(214,223,236,.14) 40%, rgba(255,255,255,.05));
+    linear-gradient(180deg, rgba(255,255,255,.34), rgba(220,228,244,.12) 34%, rgba(255,255,255,.04)),
+    linear-gradient(90deg, rgba(255,120,188,.10), transparent 30%, rgba(118,223,255,.10) 72%, transparent);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.34),
-    inset 0 0 10px rgba(255,255,255,.04),
-    0 0 14px rgba(255,156,204,.06);
-  color: #faf6ff;
+    inset 0 0 12px rgba(255,255,255,.04),
+    0 0 18px rgba(255,156,204,.10),
+    0 0 26px rgba(111,221,255,.08);
+  color: #fff8fd;
+  backdrop-filter: blur(4px);
 }
 
-@keyframes neonPulse {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.14); }
+@keyframes partyPulse {
+  0%, 100% {
+    opacity: 0.86;
+    filter: saturate(1) brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: saturate(1.15) brightness(1.08);
+  }
+}
+
+@keyframes paparazziFlash {
+  0%, 84%, 100% {
+    opacity: 0.92;
+  }
+  85% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 0.70;
+  }
+  87% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 0.88;
+  }
 }
 
 @media (max-width: 900px) {
@@ -326,10 +370,8 @@ tw-passage[tags~="party-scene"] tw-link:hover {
     padding: 0 8px 12px !important;
   }
 
-  .stat-bar {
-    top: 6px;
-    right: 6px;
-    width: 160px;
+  .scene-options {
+    margin-left: .5rem;
   }
 }
 
@@ -346,13 +388,13 @@ tw-passage[tags~="gas-station-scene"] {
   margin: 0 auto !important;
   padding: 0 12px 12px 14px !important;
   text-align: left;
-  color: #eef7ff;
+  color: #f1f8ff;
   font-family: "Chakra Petch", "Trebuchet MS", "PingFang SC", "Noto Sans SC", sans-serif;
   font-size: clamp(1rem, 1.01vw, 1.08rem);
   line-height: 1.68;
   text-shadow:
-    0 0 8px rgba(180, 230, 255, .06),
-    0 0 16px rgba(94, 214, 255, .10);
+    0 0 8px rgba(212, 242, 255, .08),
+    0 0 18px rgba(96, 220, 255, .12);
 }
 
 tw-passage[tags~="gas-station-scene"] > :first-child {
@@ -371,20 +413,34 @@ tw-passage[tags~="gas-station-scene"]::after {
 tw-passage[tags~="gas-station-scene"]::before {
   z-index: -2;
   background:
-    radial-gradient(circle at 78% 18%, rgba(255, 84, 124, 0.18), transparent 10%),
-    radial-gradient(circle at 76% 24%, rgba(88, 224, 255, 0.16), transparent 18%),
-    radial-gradient(circle at 18% 80%, rgba(114, 198, 255, 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(4, 8, 16, 0.16), rgba(2, 4, 10, 0.76)),
-    linear-gradient(180deg, #030409 0%, #07111d 52%, #020307 100%);
+    radial-gradient(circle at 78% 16%, rgba(255, 82, 110, 0.24), transparent 10%),
+    radial-gradient(circle at 76% 23%, rgba(95, 235, 255, 0.20), transparent 17%),
+    radial-gradient(circle at 19% 84%, rgba(122, 208, 255, 0.09), transparent 24%),
+    linear-gradient(180deg, rgba(10, 16, 30, 0.10), rgba(2, 4, 8, 0.80)),
+    linear-gradient(180deg, #020308 0%, #07101c 46%, #020307 100%);
+  animation: stationNightShift 8s ease-in-out infinite;
 }
 
 tw-passage[tags~="gas-station-scene"]::after {
   z-index: -1;
   background:
-    linear-gradient(180deg, transparent 0 7%, rgba(233, 245, 255, 0.14) 7% 8%, transparent 8% 11%, rgba(233, 245, 255, 0.08) 11% 12%, transparent 12% 100%),
-    repeating-linear-gradient(to bottom, rgba(255,255,255,.028) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg,
+      transparent 0 6%,
+      rgba(244, 249, 255, 0.62) 6% 6.5%,
+      rgba(177, 242, 255, 0.50) 6.5% 7.1%,
+      transparent 7.1% 10%,
+      rgba(244, 249, 255, 0.22) 10% 10.35%,
+      transparent 10.35% 100%
+    ),
+    linear-gradient(180deg,
+      transparent 0 78%,
+      rgba(255,255,255,.05) 78% 78.2%,
+      transparent 78.2% 100%
+    ),
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.03) 0 1px, transparent 1px 4px),
     linear-gradient(90deg, transparent 0 12%, rgba(255,255,255,.04) 12% 13%, transparent 13% 87%, rgba(255,255,255,.04) 87% 88%, transparent 88% 100%);
   mix-blend-mode: screen;
+  animation: stationTubeBuzz 2.2s steps(2, end) infinite;
 }
 
 tw-passage[tags~="gas-station-scene"] tw-link {
@@ -393,74 +449,105 @@ tw-passage[tags~="gas-station-scene"] tw-link {
   padding: 0;
   border: 0;
   background: none;
-  color: #8fe2ff;
+  color: #98e7ff;
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px solid rgba(143, 226, 255, 0.44);
-  text-shadow: 0 0 10px rgba(143, 226, 255, 0.16);
+  border-bottom: 1px solid rgba(152, 231, 255, 0.48);
+  text-shadow:
+    0 0 10px rgba(152, 231, 255, 0.18),
+    0 0 18px rgba(255, 116, 156, 0.08);
 }
 
 tw-passage[tags~="gas-station-scene"] tw-link:hover {
-  color: #ff8fb3;
-  border-bottom-color: rgba(255, 143, 179, 0.50);
-  text-shadow: 0 0 14px rgba(255, 143, 179, 0.30);
+  color: #ff98b8;
+  border-bottom-color: rgba(255, 152, 184, 0.56);
+  text-shadow:
+    0 0 12px rgba(255, 152, 184, 0.26),
+    0 0 22px rgba(255,255,255,.10);
 }
 
 .gas-station-panel {
   position: relative;
-  margin-top: 0.7rem;
-  padding: 14px 16px;
-  border: 1px solid rgba(176, 230, 255, 0.22);
+  margin-top: 0.75rem;
+  padding: 16px 18px;
+  border: 1px solid rgba(196, 234, 255, 0.20);
   background:
-    linear-gradient(180deg, rgba(10, 16, 30, 0.84), rgba(8, 12, 22, 0.72)),
-    linear-gradient(90deg, rgba(255, 84, 124, 0.04), transparent 28%, rgba(87, 229, 255, 0.05) 72%, transparent);
+    linear-gradient(180deg, rgba(11, 16, 28, 0.88), rgba(7, 10, 18, 0.76)),
+    linear-gradient(90deg, rgba(255, 76, 114, 0.06), transparent 24%, rgba(109, 236, 255, 0.07) 78%, transparent);
   box-shadow:
     0 0 0 1px rgba(255,255,255,.03),
-    0 0 24px rgba(83, 225, 255, 0.10),
-    inset 0 0 18px rgba(255,255,255,.03);
+    0 0 30px rgba(98, 228, 255, 0.10),
+    inset 0 0 20px rgba(255,255,255,.02);
+  overflow: hidden;
 }
 
 .gas-station-panel::before,
 .gas-station-panel::after {
   content: "";
   position: absolute;
-  left: 12px;
-  right: 12px;
-  height: 7px;
+  left: 10px;
+  right: 10px;
+  height: 8px;
   background: linear-gradient(
     90deg,
-    transparent 0%,
-    rgba(240, 250, 255, 0.84) 14%,
-    rgba(157, 243, 255, 0.92) 48%,
-    rgba(255, 210, 230, 0.78) 84%,
-    transparent 100%
+    rgba(255,255,255,0) 0%,
+    rgba(245,248,255,.96) 10%,
+    rgba(214,247,255,.98) 46%,
+    rgba(255,224,234,.92) 78%,
+    rgba(255,255,255,0) 100%
   );
   box-shadow:
-    0 0 12px rgba(160, 238, 255, 0.42),
-    0 0 24px rgba(255, 84, 124, 0.14);
-  opacity: 0.88;
-  animation: gasTubeBuzz 2.8s steps(2, end) infinite;
+    0 0 8px rgba(255,255,255,.28),
+    0 0 16px rgba(154, 240, 255, 0.42),
+    0 0 28px rgba(255, 88, 126, 0.14);
+  opacity: 0.92;
+  animation: stationPanelBuzz 1.9s steps(2, end) infinite;
 }
 
 .gas-station-panel::before {
-  top: -9px;
+  top: -8px;
 }
 
 .gas-station-panel::after {
-  bottom: -9px;
-  opacity: 0.68;
-  animation-delay: 1.1s;
+  bottom: -8px;
+  opacity: 0.78;
+  animation-delay: .9s;
 }
 
-@keyframes gasTubeBuzz {
-  0%, 100% { opacity: 0.88; filter: brightness(1); }
-  5% { opacity: 0.22; }
-  8% { opacity: 0.92; }
-  13% { opacity: 0.46; }
-  17% { opacity: 0.95; }
-  48% { opacity: 0.84; }
-  52% { opacity: 0.30; }
-  56% { opacity: 0.90; }
+.gas-station-panel .gas-copy {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes stationNightShift {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.08) saturate(1.12);
+  }
+}
+
+@keyframes stationTubeBuzz {
+  0%, 100% { opacity: 0.92; }
+  4% { opacity: 0.26; }
+  8% { opacity: 0.95; }
+  13% { opacity: 0.44; }
+  17% { opacity: 0.96; }
+  48% { opacity: 0.86; }
+  52% { opacity: 0.32; }
+  56% { opacity: 0.92; }
+}
+
+@keyframes stationPanelBuzz {
+  0%, 100% { opacity: 0.90; filter: brightness(1); }
+  6% { opacity: 0.18; }
+  10% { opacity: 0.94; }
+  15% { opacity: 0.52; }
+  22% { opacity: 1; }
+  61% { opacity: 0.84; }
+  64% { opacity: 0.30; }
+  68% { opacity: 0.92; }
 }
 
 @media (max-width: 900px) {
@@ -468,17 +555,109 @@ tw-passage[tags~="gas-station-scene"] tw-link:hover {
     width: 96vw;
     padding: 0 8px 12px !important;
   }
+
+  .gas-station-panel {
+    padding: 14px 14px;
+  }
 }
 
 
 
-/* hard override: pull all non-cover passages up */
+/* -------------------- */
+/* Stats Bar */
+/* -------------------- */
+
+.stat-bar {
+  position: fixed;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(8, 10, 18, 0.34);
+  box-shadow: 0 0 10px rgba(255,156,204,.05);
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+}
+
+.stat-bar br {
+  display: none;
+}
+
+.stat-pill {
+  display: grid;
+  grid-template-columns: 190px 10px 28px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1px 6px;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: rgba(10,14,28,.28);
+  color: #f8f5ff;
+  font-family: "VT323", monospace;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  image-rendering: pixelated;
+}
+
+.stat-pill:last-child {
+  border-bottom: 0;
+}
+
+.stat-name {
+  text-align: right;
+  padding-right: 3px;
+  white-space: nowrap;
+}
+
+.stat-colon {
+  text-align: center;
+}
+
+.stat-value {
+  text-align: left;
+  color: #9fe3ff;
+}
+
+@media (max-width: 900px) {
+  .stat-bar {
+    top: 1px;
+  }
+
+  .stat-pill {
+    grid-template-columns: 140px 8px 24px;
+    padding: 1px 4px;
+    font-size: 0.82rem;
+  }
+}
+
+/* hard top-align all non-cover passages */
+tw-story {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 tw-passage:not([tags~="cover-page"]) {
-  margin: -400px auto 0 !important;
-  padding: 0 220px 12px 12px !important;
+  margin: -28px auto 0 !important;
+  padding-top: 0 !important;
 }
 
-/* remove top gap from first visible element */
+/* kill the first empty line Harlowe often inserts */
+tw-passage:not([tags~="cover-page"]) > br:first-child,
+tw-passage:not([tags~="cover-page"]) > tw-br:first-child {
+  display: none !important;
+}
+
 tw-passage:not([tags~="cover-page"]) > :first-child,
 tw-passage:not([tags~="cover-page"]) > tw-hook:first-child,
 tw-passage:not([tags~="cover-page"]) > tw-expression:first-child,
@@ -487,34 +666,33 @@ tw-passage:not([tags~="cover-page"]) > p:first-child {
   padding-top: 0 !important;
 }
 
-/* keep stats panel tight on the top-right */
+
+/* keep stats glued to the top */
+
+tw-passage:not([tags~="cover-page"]) {
+  margin-top: -300px !important;
+  padding-top: 0 !important;
+}
 .stat-bar {
   top: 0 !important;
-  right: 0 !important;
-  width: 200px !important;
 }
 
-/* mobile */
 @media (max-width: 900px) {
   tw-passage:not([tags~="cover-page"]) {
-    margin-top: -20px !important;
-    padding: 0 8px 12px 8px !important;
+    margin-top: -500px !important;
   }
 
   .stat-bar {
-    width: 160px !important;
-    top: 4px !important;
-    right: 4px !important;
+    top: 0 !important;
   }
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="footer" color="red"></tw-tag><tw-tag name="party-scene" color="purple"></tw-tag><tw-tag name="cover-page" color="red"></tw-tag><tw-tag name="gas-station-scene" color="blue"></tw-tag><tw-passagedata pid="1" name="START" tags="party-scene" position="625,400" size="100,100">(set:$dO to 0)
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="footer" color="red"></tw-tag><tw-tag name="party-scene" color="purple"></tw-tag><tw-tag name="cover-page" color="red"></tw-tag><tw-tag name="gas-station-scene" color="blue"></tw-tag><tw-passagedata pid="1" name="START" tags="party-scene" position="525,1200" size="100,100">(set:$dO to 0)
 (set:$dC to 0)
 (set:$dE to 0)
 (set:$dA to 0)
 (set:$dN to 0)
 (display:&quot;SceneStart&quot;)
-
-仅仅是站在门口，客厅里[[house party]]传来的音乐就已吵得令你皱眉。如果是Bass倒好了，可这群白痴只会放点Mariah Carey这样土到掉渣的流行乐。你回头看了看，小镇郊区浓重的夜色里，隐约能看见路尽头的[[加油站]]发出淡淡的红光。
+只是站在门口，客厅里那场[[house party]]传出来的音乐就已经吵得你皱起眉头。要是震耳的是 Bass 也就算了，可这群白痴偏偏只会放 Mariah Carey 这样土得掉渣的流行歌。你回头望了一眼，小镇郊区沉沉的夜色里，路的尽头隐约浮着[[加油站]]那一点淡淡的红光。
 
   &lt;img
     src=&quot;https://i.postimg.cc/zGj03K7Q/p-START.png&quot;
@@ -526,23 +704,20 @@ tw-passage:not([tags~="cover-page"]) > p:first-child {
     alt=&quot;t-start&quot;
     style=&quot;display:block; width:100%; height:auto; margin:0; border:1px solid rgba(255,255,255,.18); box-shadow:0 0 18px rgba(255,255,255,.08);&quot;
   /&gt;
-
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="2" name="house party" tags="party-scene" position="775,250" size="100,100">(set:$dO to 2)
+</tw-passagedata><tw-passagedata pid="2" name="house party" tags="party-scene" position="650,500" size="100,100">(set:$dO to 0)
 (set:$dC to 2)
 (set:$dE to 2)
 (set:$dA to 2)
 (set:$dN to 0)
 (display:&quot;SceneStart&quot;)
-
 客厅门口少了门廊回音的扩散，音乐反倒入耳一些。不知道是 John 还是他姐姐从哪儿弄来一个迪斯科球，晃晃悠悠地挂在客厅天花板中央的风扇上。
-大多数人都挤在[[餐桌旁]]打乒乓球，桌上堆满了红色塑料杯，还有几瓶从父母酒柜里偷拿出来的酒。一对情侣贴着你身边挤过去，推门进了[[车库]]，空气里很快漫开一阵浓烈的大麻味。头顶传来一串咯咯的笑声，[[楼梯]]上站着几个女孩，在昏暗的灯光下看不太真切，但多半是八年级的学生。
+大多数人都挤在[[餐桌旁]]丢乒乓球玩，桌上堆满了红色塑料杯，还有几瓶从父母酒柜里偷拿出来的酒。一对情侣贴着你身边挤过去，推门进了[[车库]]，空气里很快漫开一阵浓烈的大麻味。头顶传来一串咯咯的笑声，[[楼梯]]上站着几个女孩，在昏暗的灯光下看不太真切，但多半是八年级的学生。
 
   &lt;img
     src=&quot;https://i.postimg.cc/YSNkvXZk/p-keting.png&quot;
     alt=&quot;p-keting&quot;
     style=&quot;display:block; width:100%; height:auto; margin:0; border:1px solid rgba(255,255,255,.18); box-shadow:0 0 18px rgba(255,255,255,.08);&quot;
-  /&gt;</tw-passagedata><tw-passagedata pid="3" name="COVER" tags="cover-page" position="500,400" size="100,100">&lt;div class=&quot;cover-screen&quot;&gt;
+  /&gt;</tw-passagedata><tw-passagedata pid="3" name="COVER" tags="cover-page" position="400,1200" size="100,100">&lt;div class=&quot;cover-screen&quot;&gt;
   &lt;div class=&quot;cover-panel&quot;&gt;
     &lt;h1 class=&quot;cover-title cover-title-cn&quot; data-title=&quot;新世界&quot;&gt;新世界&lt;/h1&gt;
     &lt;h1 class=&quot;cover-title cover-title-en&quot; data-title=&quot;NEW WORLD&quot;&gt;NEW WORLD&lt;/h1&gt;
@@ -551,32 +726,33 @@ tw-passage:not([tags~="cover-page"]) > p:first-child {
 
   &lt;p class=&quot;cover-credit&quot;&gt;A fan-made fictional game for The Chainsmokers.
   Names, characters, businesses, places, events, and incidents are either the author’s imagination or used in a fictitious manner.&lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="加油站" tags="gas-station-scene" position="775,550" size="100,100">(set:$dO to 0)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="加油站" tags="gas-station-scene" position="650,1900" size="100,100">(set:$dO to 0)
 (set:$dC to 0)
 (set:$dE to 0)
 (set:$dA to 0)
 (set:$dN to 0)
 (display:&quot;SceneStart&quot;)
+这条路的尽头，与主干道交汇的地方。你知道加油站里有一家[[便利店]]。
 
-这条路的尽头，与主干道交汇的地方。你知道加油站里有一家[[便利店]]。可就这样放弃这次难得的、来自年级里最受欢迎同学的[[house party]]邀请，未免太可惜。
-只是，你真的能融入那样的场景吗？也许，直接[[回家]]才是更轻松的选择。
-</tw-passagedata><tw-passagedata pid="5" name="酒吧" tags="" position="1075,700" size="100,100">(set:$dO to 4)
+  &lt;img
+    src=&quot;https://i.postimg.cc/pLxs2qfY/t-START.png&quot;
+    alt=&quot;t-start&quot;
+    style=&quot;display:block; width:100%; height:auto; margin:0; border:1px solid rgba(255,255,255,.18); box-shadow:0 0 18px rgba(255,255,255,.08);&quot;
+  /&gt;</tw-passagedata><tw-passagedata pid="5" name="酒吧" tags="" position="900,1700" size="100,100">(set:$dO to 4)
 (set:$dC to 0)
 (set:$dE to 2)
 (set:$dA to 0)
 (set:$dN to -2)
 (display:&quot;SceneStart&quot;)
-
 需要假身份证
 [[找人]]
-[[回家]]</tw-passagedata><tw-passagedata pid="6" name="回家" tags="" position="775,700" size="100,100">(set:$dO to -2)
+[[回家]]</tw-passagedata><tw-passagedata pid="6" name="回家" tags="" position="900,2100" size="100,100">(set:$dO to 0)
 (set:$dC to -2)
-(set:$dE to -2)
+(set:$E to -4)
 (set:$dA to -2)
 (set:$dN to 0)
 (display:&quot;SceneStart&quot;)
-
-没有人在家。</tw-passagedata><tw-passagedata pid="7" name="找人" tags="" position="1225,625" size="100,100">[[店员]]</tw-passagedata><tw-passagedata pid="8" name="startup" tags="" position="0,0" size="100,100">(set:$O to 0)
+没有人在家。</tw-passagedata><tw-passagedata pid="7" name="找人" tags="" position="1025,1650" size="100,100">[[店员]]</tw-passagedata><tw-passagedata pid="8" name="startup" tags="" position="0,0" size="100,100">(set:$O to 0)
 (set:$C to 0)
 (set:$E to 0)
 (set:$A to 0)
@@ -592,66 +768,91 @@ tw-passage:not([tags~="cover-page"]) > p:first-child {
 (set:$E to $E + $dE)
 (set:$A to $A + $dA)
 (set:$N to $N + $dN)
-
-&lt;div class=&quot;stat-bar&quot;&gt;
-  &lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Openness&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$O)&lt;/span&gt;&lt;/div&gt;
-  &lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Conscientiousness&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$C)&lt;/span&gt;&lt;/div&gt;
-  &lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Extraversion&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$E)&lt;/span&gt;&lt;/div&gt;
-  &lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Agreeableness&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$A)&lt;/span&gt;&lt;/div&gt;
-  &lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Neuroticism&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$N)&lt;/span&gt;&lt;/div&gt;
-&lt;/div&gt;
-
+&lt;div class=&quot;stat-bar&quot;&gt;&lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Openness&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$O)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Conscientiousness&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$C)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Extraversion&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$E)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Agreeableness&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$A)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;stat-pill&quot;&gt;&lt;span class=&quot;stat-name&quot;&gt;Neuroticism&lt;/span&gt;&lt;span class=&quot;stat-colon&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;stat-value&quot;&gt;(print:$N)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 (set:$dO to 0)
 (set:$dC to 0)
 (set:$dE to 0)
 (set:$dA to 0)
 (set:$dN to 0)
-</tw-passagedata><tw-passagedata pid="10" name="餐桌旁" tags="party-scene" position="925,100" size="100,100">(set:$dO to 2)
-(set:$dC to 0)
-(set:$dE to 2)
-(set:$dA to 2)
+</tw-passagedata><tw-passagedata pid="10" name="餐桌旁" tags="party-scene" position="775,200" size="100,100">(set:$dO to 0)
+(set:$dC to 2)
+(set:$dE to 0)
+(set:$dA to 0)
 (set:$dN to 0)
-(display:&quot;SceneStart&quot;)</tw-passagedata><tw-passagedata pid="11" name="便利店" tags="gas-station-scene" position="925,550" size="100,100">(set:$dO to -2)
+(display:&quot;SceneStart&quot;)
+你走向餐桌。没办法，这屋子里你认识的唯二两个人都正围着桌子大声欢呼。John看见你来了，顺手就把一个红色塑料杯塞进你手里。你低头闻了闻，杯子里是没兑过的 shot，辛辣刺鼻的酒气一下冲上来，惹得你皱了皱鼻子。
+你才刚犹豫了一瞬，旁边一个高个子便立刻嗤笑了一声。你闭上眼，[[仰起头]]——
+
+  &lt;img
+    src=&quot;https://i.postimg.cc/d1xVBYZ4/p-canzhuopang.png&quot;
+    alt=&quot;p-canzhuopang&quot;
+    style=&quot;display:block; width:100%; height:auto; margin:0; border:1px solid rgba(255,255,255,.18); box-shadow:0 0 18px rgba(255,255,255,.08);&quot;
+  /&gt;</tw-passagedata><tw-passagedata pid="11" name="便利店" tags="gas-station-scene" position="775,1900" size="100,100">(set:$dO to 0)
 (set:$dC to -2)
 (set:$dE to -2)
 (set:$dA to -2)
 (set:$dN to 0)
 (display:&quot;SceneStart&quot;)
-
 [[店员]]
-[[酒吧]]</tw-passagedata><tw-passagedata pid="12" name="店员" tags="gas-station-scene" position="1075,550" size="100,100">(set:$dO to 0)
+[[酒吧]]
+[[回家]]</tw-passagedata><tw-passagedata pid="12" name="店员" tags="gas-station-scene" position="1200,1200" size="100,100">(set:$dO to 0)
 (set:$dC to 0)
 (set:$dE to 2)
 (set:$dA to 0)
 (set:$dN to 0)
 (display:&quot;SceneStart&quot;)
-
 Alex
-</tw-passagedata><tw-passagedata pid="13" name="楼梯" tags="party-scene" position="925,250" size="100,100">(set:$dO to 2)
+</tw-passagedata><tw-passagedata pid="13" name="楼梯" tags="party-scene" position="775,500" size="100,100">(set:$dO to 0)
 (set:$dC to 0)
 (set:$dE to 2)
 (set:$dA to 0)
 (set:$dN to 0)
 (display:&quot;SceneStart&quot;)
-
-[[Michelle]]</tw-passagedata><tw-passagedata pid="14" name="车库" tags="party-scene" position="925,400" size="100,100">(set:$dO to 2)
+[[Michelle]]</tw-passagedata><tw-passagedata pid="14" name="车库" tags="party-scene" position="775,800" size="100,100">(set:$dO to 2)
 (set:$dC to 0)
-(set:$dE to 2)
+(set:$dE to 0)
 (set:$dA to 0)
 (set:$dN to 0)
 (display:&quot;SceneStart&quot;)
-
-[[大麻]]</tw-passagedata><tw-passagedata pid="15" name="大麻" tags="party-scene" position="1075,400" size="100,100">(set:$dO to 2)
+[[大麻]]</tw-passagedata><tw-passagedata pid="15" name="大麻" tags="party-scene" position="900,800" size="100,100">(set:$dO to 2)
 (set:$dC to -2)
 (set:$dE to 0)
 (set:$dA to -2)
 (set:$dN to -2)
-(display:&quot;SceneStart&quot;)</tw-passagedata><tw-passagedata pid="16" name="Michelle" tags="party-scene" position="1075,250" size="100,100">(set:$dO to 2)
+(display:&quot;SceneStart&quot;)
+没有比这更好的感觉了，你想，[[我喜欢大麻]]。</tw-passagedata><tw-passagedata pid="16" name="Michelle" tags="party-scene" position="900,500" size="100,100">(set:$dO to 2)
 (set:$dC to 0)
 (set:$dE to 2)
 (set:$dA to 0)
 (set:$dN to 0)
-(display:&quot;SceneStart&quot;)</tw-passagedata></tw-storydata>
+(display:&quot;SceneStart&quot;)
+没有比这更好的感觉了，你想，[[我喜欢做爱]]。</tw-passagedata><tw-passagedata pid="17" name="仰起头" tags="party-scene" position="900,200" size="100,100">(set:$dO to 0)
+(set:$dC to 0)
+(set:$dE to 0)
+(set:$dA to 2)
+(set:$dN to 0)
+(display:&quot;SceneStart&quot;)
+把这杯shot一口灌了下去。酒精辛辣又苦涩，像一团火沿着喉咙一路冲进身体深处，连内脏都仿佛被热意灼了一遍。但这一切都是值得的，因为四周顿时爆发出一阵欢呼，刚才的高个子甚至重重地拍了下你的肩。于是尴尬像烟一样散开，剩下酒精带来的眩晕和被接纳的满足感。大家都喜欢你。
+没有比这更好的感觉了，你想，[[我喜欢酒精]]。
+
+  &lt;img
+    src=&quot;https://i.postimg.cc/d1xVBYZ4/p-canzhuopang.png&quot;
+    alt=&quot;p-canzhuopang&quot;
+    style=&quot;display:block; width:100%; height:auto; margin:0; border:1px solid rgba(255,255,255,.18); box-shadow:0 0 18px rgba(255,255,255,.08);&quot;
+  /&gt;</tw-passagedata><tw-passagedata pid="18" name="我喜欢酒精" tags="party-scene" position="1025,200" size="100,100">(set:$dO to 0)
+(set:$dC to 0)
+(set:$dE to 2)
+(set:$dA to 2)
+(set:$dN to 2)
+(display:&quot;SceneStart&quot;)
+原来酒是这样的东西。想说的话一点一点冒出来，音乐也忽然变得好听了，连我都想要跟着晃两下身体。刚刚那个笑话好好笑啊，明明已经记不得了，却还是笑得停不下来。原来喝完酒世界就会变好，甚至觉得现在自己这样也没那么讨厌。好简单，原来想变成正常人只需要酒精就可以了。
+John给了你一肘击：“要不要再去买点酒。”
+
+  &lt;img
+    src=&quot;https://i.postimg.cc/d1xVBYZ4/p-canzhuopang.png&quot;
+    alt=&quot;p-canzhuopang&quot;
+    style=&quot;display:block; width:100%; height:auto; margin:0; border:1px solid rgba(255,255,255,.18); box-shadow:0 0 18px rgba(255,255,255,.08);&quot;
+  /&gt;</tw-passagedata><tw-passagedata pid="19" name="我喜欢做爱" tags="party-scene" position="1025,500" size="100,100"></tw-passagedata><tw-passagedata pid="20" name="我喜欢大麻" tags="party-scene" position="1025,800" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Untitled Passage" tags="" position="1400,1200" size="100,100">Alex说。“[[我们学校见]]。”</tw-passagedata><tw-passagedata pid="22" name="我们学校见" tags="" position="1525,1200" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
